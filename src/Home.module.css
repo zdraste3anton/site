@@ -1,0 +1,11 @@
+.main {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  box-sizing: border-box;
+}

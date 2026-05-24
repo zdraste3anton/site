@@ -1,0 +1,144 @@
+﻿.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px clamp(24px, 4vw, 40px);
+  background: rgba(18, 18, 26, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-glass);
+}
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Страницы /login и /register: только бренд слева, без правого блока */
+.innerAuthOnly {
+  justify-content: flex-start;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.brand:hover {
+  opacity: 0.92;
+}
+
+.brandMark {
+  filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.35));
+}
+
+.brandText {
+  font-weight: 700;
+  font-size: 1.1875rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.authActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.loginBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-border-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: var(--transition);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.homeLink {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.homeLink:hover {
+  color: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.loginBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.2);
+  transform: translateY(-1px);
+}
+
+.loginBtn:active {
+  transform: translateY(0);
+}
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 18px clamp(28px, 4vw, 48px);
+  }
+
+  .brandText {
+    font-size: 1.3125rem;
+  }
+
+  .loginBtn {
+    padding: 14px 32px;
+    font-size: 1.0625rem;
+    border-radius: 14px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .brandText {
+    font-size: 1.375rem;
+  }
+
+  .loginBtn {
+    padding: 15px 36px;
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandText {
+    font-size: 1rem;
+  }
+
+  .loginBtn {
+    padding: 8px 16px;
+    font-size: 1.0625rem;
+  }
+}

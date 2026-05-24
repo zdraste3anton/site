@@ -1,0 +1,58 @@
+
+.shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  overflow-x: hidden;
+  background: #07060d;
+}
+
+.bgImage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: #06050c;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bgOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+.mainTheme .bgImage {
+  background-image: url('../assets/backgrounds/main-bg.png');
+}
+
+.mainTheme .bgOverlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 3, 10, 0.84) 0%,
+      rgba(7, 6, 16, 0.58) 42%,
+      rgba(3, 2, 9, 0.88) 100%
+    ),
+    radial-gradient(ellipse 75% 95% at 0% 45%, rgba(37, 99, 235, 0.28) 0%, transparent 56%),
+    radial-gradient(ellipse 70% 85% at 100% 40%, rgba(234, 88, 12, 0.2) 0%, transparent 52%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(76, 29, 149, 0.14) 0%, transparent 50%);
+}
+
+
+.authTheme .bgImage {
+  background-image: url('../assets/backgrounds/auth-bg.png');
+  filter: blur(1.5px);
+  transform: scale(1.02);
+}
+
+.authTheme .bgOverlay {
+  background:
+    linear-gradient(180deg, rgba(6, 4, 10, 0.8) 0%, rgba(8, 6, 14, 0.52) 48%, rgba(4, 3, 9, 0.85) 100%),
+    radial-gradient(ellipse 100% 70% at 50% 28%, rgba(124, 58, 237, 0.09) 0%, transparent 62%),
+    radial-gradient(ellipse 95% 75% at 12% 22%, rgba(180, 85, 35, 0.18) 0%, transparent 54%),
+    radial-gradient(ellipse 75% 65% at 92% 58%, rgba(251, 146, 60, 0.12) 0%, transparent 52%);
+}

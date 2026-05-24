@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(uuid())
+  username     String
+  email        String      @unique
+  passwordHash String      @map("password_hash")
+  createdAt    DateTime    @default(now()) @map("created_at")
+  updatedAt    DateTime    @updatedAt @map("updated_at")
+  characters   Character[]
+
+  @@map("users")
+}
+
+model Race {
+  id          String   @id
+  name        String
+  description String   @db.Text
+  icon        String?
+  traitsJson  Json     @map("traits_json")
+  bonusesJson Json     @default("{}") @map("bonuses_json")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("races")
+}
+
+model DndClass {
+  id           String   @id
+  name         String
+  description  String   @db.Text
+  icon         String?
+  featuresJson Json     @map("features_json")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("classes")
+}
+
+model Spell {
+  id          String   @id
+  name        String
+  description String   @db.Text
+  level       Int
+  levelGroup  String   @map("level_group")
+  school      String
+  classesJson Json     @map("classes_json")
+  tagsJson    Json     @map("tags_json")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([name])
+  @@index([levelGroup])
+  @@index([school])
+  @@map("spells")
+}
+
+model Character {
+  id               String   @id @default(uuid())
+  userId           String   @map("user_id")
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name             String
+  raceName         String   @map("race_name")
+  className        String   @map("class_name")
+  classId          String?  @map("class_id")
+  level            Int      @default(1)
+  attributesJson   Json     @map("attributes_json")
+  skillsJson       Json?    @map("skills_json")
+  /**
+   * Упрощённое хранение (CSV-строка) для совместимости с фронтом.
+   * Если фронт шлёт массивы — бэкенд склеивает в строку.
+   */
+  spells           String?  @default("")
+  inventory        String?  @default("")
+  spellsJson       Json?    @map("spells_json")
+  inventoryJson    Json?    @map("inventory_json")
+  story            String?  @db.Text
+  portraitUrl      String?  @map("portrait_url") @db.Text
+  appearancePrompt String?  @map("appearance_prompt") @db.Text
+  armorClass       Int?     @map("armor_class")
+  hitPoints        Int?     @map("hit_points")
+  initiative       String?
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@map("characters")
+}

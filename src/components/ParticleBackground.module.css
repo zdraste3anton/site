@@ -1,0 +1,70 @@
+.layer {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.layerSection {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.layerViewport {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+}
+
+.particle {
+  position: absolute;
+  left: var(--left);
+  top: var(--top);
+  width: var(--size);
+  height: var(--size);
+  margin-left: calc(var(--size) * -0.5);
+  margin-top: calc(var(--size) * -0.5);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 248, 220, 0.95) 0%,
+    rgba(251, 191, 36, 0.55) 42%,
+    rgba(234, 88, 12, 0.2) 68%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 calc(var(--size) * 1.2) rgba(251, 191, 36, 0.5),
+    0 0 calc(var(--size) * 3.5) rgba(234, 88, 12, 0.18);
+  animation:
+    particleDrift var(--drift-dur) ease-in-out infinite,
+    particleTwinkle var(--twinkle-dur) ease-in-out infinite;
+  animation-delay: var(--drift-delay), var(--twinkle-delay);
+}
+
+@keyframes particleDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(var(--dx), var(--dy), 0);
+  }
+  100% {
+    transform: translate3d(calc(var(--dx) * -0.35), calc(var(--dy) * -0.2), 0);
+  }
+}
+
+@keyframes particleTwinkle {
+  0%,
+  100% {
+    opacity: var(--base-opacity);
+  }
+  50% {
+    opacity: calc(var(--base-opacity) * 0.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+    opacity: var(--base-opacity);
+  }
+}

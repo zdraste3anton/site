@@ -1,0 +1,24 @@
+/**
+ * Diploma-defense presentation enhancements (desktop).
+ * Works with CSS modules via element selectors inside main shells.
+ */
+
+@media (min-width: 1024px) {
+  main[class*='sheetMain'],
+  main[class*='main'] {
+    max-width: min(var(--container-max), 100%);
+  }
+
+  textarea,
+  input[type='text'],
+  input[type='number'],
+  select {
+    font-size: max(1rem, 16px);
+    min-height: 2.75rem;
+  }
+
+  textarea {
+    line-height: 1.5;
+    padding: 12px 14px;
+  }
+}

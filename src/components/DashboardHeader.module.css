@@ -1,0 +1,273 @@
+﻿.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px clamp(24px, 4vw, 40px);
+  background: rgba(12, 11, 20, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border-glass);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 120;
+}
+
+.brand:hover {
+  opacity: 0.94;
+  transform: scale(1.02);
+}
+
+.brandMark {
+  filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.35));
+}
+
+.brandText {
+  font-weight: 700;
+  font-size: 1.3125rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.menuToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+  z-index: 120;
+}
+
+.menuToggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(251, 191, 36, 0.35);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+  transform: scale(1.03);
+}
+
+.burger {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  display: block;
+}
+
+.burgerBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.3s ease, opacity 0.25s ease, top 0.3s ease;
+}
+
+.burgerBar:nth-child(1) {
+  top: 0;
+}
+
+.burgerBar:nth-child(2) {
+  top: 6px;
+}
+
+.burgerBar:nth-child(3) {
+  top: 12px;
+}
+
+.burgerBarMid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.burgerBar1Open {
+  top: 6px;
+  transform: rotate(45deg);
+}
+
+.burgerBar3Open {
+  top: 6px;
+  transform: rotate(-45deg);
+}
+
+.navBackdrop {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2.5vw, 28px);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.navLink {
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.58);
+  text-decoration: none;
+  transition: color 0.28s ease;
+  padding: 10px 6px;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.95), transparent);
+  opacity: 0;
+  transform: scaleX(0.35);
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navLink:hover {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.navLink:hover::after {
+  opacity: 0.35;
+  transform: scaleX(0.7);
+}
+
+.navLinkActive {
+  color: #fcd34d;
+}
+
+.navLinkActive::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.navSoon {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.38);
+  cursor: default;
+  padding: 10px 6px;
+}
+
+@media (max-width: 900px) {
+  .menuToggle {
+    display: inline-flex;
+  }
+
+  .navBackdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 105;
+    background: rgba(4, 3, 10, 0.62);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .navBackdropVisible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(300px, 88vw);
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: calc(var(--header-height) + 16px) 20px 28px;
+    margin: 0;
+    background: linear-gradient(200deg, rgba(22, 20, 36, 0.98), rgba(10, 9, 18, 0.99));
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -16px 0 48px rgba(0, 0, 0, 0.55);
+    transform: translateX(100%);
+    transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 110;
+  }
+
+  .navOpen {
+    transform: translateX(0);
+  }
+
+  .navLink {
+    padding: 14px 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .navLink::after {
+    left: 10px;
+    right: 10px;
+    bottom: 8px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 18px clamp(28px, 4vw, 48px);
+  }
+
+  .brandText {
+    font-size: 1.3125rem;
+  }
+
+  .navLink,
+  .navSoon {
+    font-size: 1rem;
+  }
+}

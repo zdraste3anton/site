@@ -1,0 +1,131 @@
+﻿.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: 0;
+  padding: clamp(24px, 3vw, 32px) clamp(22px, 2.5vw, 28px);
+  border-radius: 22px;
+  border: 1px solid var(--color-border-glass);
+  background: linear-gradient(165deg, rgba(34, 34, 48, 0.88) 0%, rgba(12, 12, 20, 0.94) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 20px 56px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  transition: var(--transition);
+}
+
+.card:hover {
+  /* Без scale: растровые иконки классов не размываются при наведении */
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.orange:hover {
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.48),
+    0 0 48px rgba(245, 158, 11, 0.18),
+    0 0 0 1px rgba(251, 191, 36, 0.22) inset;
+}
+
+.purple:hover {
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.48),
+    0 0 48px rgba(124, 58, 237, 0.2),
+    0 0 0 1px rgba(167, 139, 250, 0.22) inset;
+}
+
+.violet:hover {
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.48),
+    0 0 48px rgba(139, 92, 246, 0.16),
+    0 0 0 1px rgba(196, 181, 253, 0.2) inset;
+}
+
+.iconWrap {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  /* Плотный фон под иконкой — меньше «мыла» от полупрозрачности на glass */
+  background: rgba(12, 10, 18, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+.iconImg {
+  width: 56px;
+  height: 56px;
+  max-width: 56px;
+  max-height: 56px;
+  object-fit: contain;
+  object-position: center;
+  image-rendering: auto;
+  display: block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  /* Без transition/filter на img — резкость PNG/SVG */
+}
+
+.card:hover .iconWrap {
+  border-color: rgba(251, 191, 36, 0.28);
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.1) inset,
+    0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+.name {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.description {
+  margin: 0;
+  flex: 1;
+  font-size: 1.125rem;
+  line-height: 1.62;
+  color: var(--color-text-muted);
+}
+
+.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.28);
+}
+
+@media (max-width: 900px) {
+  .card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+}

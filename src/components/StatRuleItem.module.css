@@ -1,0 +1,36 @@
+﻿.item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.mark {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.abbr {
+  font-weight: 600;
+  color: rgba(251, 191, 36, 0.9);
+}
+
+.body {
+  font-size: 1.125rem;
+  line-height: 1.62;
+  color: var(--color-text-muted);
+}
+
+.body p {
+  margin: 0 0 0.5rem;
+}
+
+.body p:last-child {
+  margin-bottom: 0;
+}

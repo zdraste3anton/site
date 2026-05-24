@@ -1,0 +1,378 @@
+﻿.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vw, 40px);
+}
+
+.searchBlock {
+  width: 100%;
+  max-width: 520px;
+  align-self: center;
+}
+
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vw, 22px);
+  width: 100%;
+  overflow: visible;
+}
+
+.staggerItem {
+  animation: rulesFadeSlide 0.5s ease-out both;
+  animation-delay: calc(var(--i, 0) * 0.05s);
+}
+
+@keyframes rulesFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion {
+  border-radius: 22px;
+  border: 1px solid rgba(212, 158, 81, 0.42);
+  background: linear-gradient(165deg, rgba(34, 34, 48, 0.9) 0%, rgba(12, 12, 20, 0.96) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(212, 158, 81, 0.08) inset;
+  overflow: visible;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.accordion:hover {
+  border-color: rgba(212, 158, 81, 0.58);
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(212, 158, 81, 0.12) inset,
+    0 0 28px rgba(212, 158, 81, 0.14);
+}
+
+.accordionHead {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(18px, 2.2vw, 22px) clamp(20px, 2.5vw, 26px);
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 22px;
+}
+
+.accordionHead:focus-visible {
+  outline: 2px solid rgba(212, 158, 81, 0.55);
+  outline-offset: 2px;
+}
+
+.accordionHeadText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.accordionTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.35rem, 1.2vw + 1rem, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.accordionSubtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(212, 158, 81, 0.88);
+}
+
+.accordionChev {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: rgba(212, 158, 81, 0.75);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.accordionChevOpen {
+  transform: rotate(180deg);
+  color: rgba(212, 158, 81, 0.95);
+}
+
+.accordionPanel {
+  padding: 0 clamp(20px, 2.5vw, 28px) clamp(22px, 2.8vw, 30px);
+  border-top: 1px solid rgba(212, 158, 81, 0.2);
+}
+
+.rulesEmpty {
+  margin: 0;
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.twoCols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 40px);
+}
+
+@media (max-width: 768px) {
+  .twoCols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.col {
+  min-width: 0;
+}
+
+.colTitle {
+  margin: 0 0 0.75rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #d49e51;
+}
+
+.colTitleSpaced {
+  margin-top: 1.25rem;
+}
+
+.p {
+  margin: 0 0 0.85rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.p:last-child {
+  margin-bottom: 0;
+}
+
+.gold {
+  color: #d49e51;
+  font-weight: 600;
+}
+
+.intro {
+  margin: 0 0 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: rgba(212, 158, 81, 0.9);
+  font-weight: 500;
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 28px);
+}
+
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Формула проверки навыка --- */
+.formulaWrap {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.formulaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 10px 12px;
+}
+
+.formulaChip {
+  min-width: 5.5rem;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(212, 158, 81, 0.35);
+  background: rgba(8, 8, 14, 0.72);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.formulaChipResult {
+  border-color: rgba(212, 158, 81, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(212, 158, 81, 0.12) inset,
+    0 0 20px rgba(212, 158, 81, 0.15);
+}
+
+.formulaChipLabel {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #d49e51;
+}
+
+.formulaChipHint {
+  font-size: 1.125rem;
+  line-height: 1.35;
+  color: var(--color-text-muted);
+}
+
+.formulaOp {
+  align-self: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  padding: 0 2px;
+}
+
+.formulaFoot {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* --- Состояния --- */
+.statesIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.statesLead {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 12px;
+}
+
+.statesEmpty {
+  margin: 0;
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  padding: 16px;
+}
+
+.stateCard {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 12px 12px;
+  min-height: 108px;
+  border-radius: 16px;
+  border: 1px solid rgba(212, 158, 81, 0.28);
+  background: rgba(8, 8, 14, 0.65);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stateCard:hover,
+.stateCard:focus-visible {
+  border-color: rgba(212, 158, 81, 0.55);
+  box-shadow: 0 0 22px rgba(212, 158, 81, 0.18);
+  outline: none;
+}
+
+.stateIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #d49e51;
+}
+
+.stateSvg {
+  width: 28px;
+  height: 28px;
+}
+
+.stateName {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.25;
+}
+
+.stateDesc {
+  font-size: 1.125rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    margin 0.3s ease;
+  margin-top: 0;
+}
+
+.stateCard:hover .stateDesc,
+.stateCard:focus-visible .stateDesc {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .staggerItem {
+    animation: none;
+  }
+
+  .stateDesc {
+    transition: none;
+  }
+
+  .accordionChevOpen {
+    transform: none;
+  }
+}

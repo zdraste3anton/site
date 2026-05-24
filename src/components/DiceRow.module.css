@@ -1,0 +1,130 @@
+﻿.block {
+  width: 100%;
+  padding: clamp(8px, 1.5vw, 16px);
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(124, 58, 237, 0.07) 0%,
+    rgba(18, 16, 28, 0.35) 38%,
+    rgba(245, 158, 11, 0.06) 100%
+  );
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+/* Как .lead в CombatRulesBlock — Inter, тот же ритм и жёлтый акцент */
+.intro {
+  margin: 0 0 1.25rem;
+  max-width: none;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: rgba(251, 191, 36, 0.88);
+}
+
+.intro strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(20px, 3vw, 36px) clamp(14px, 2vw, 24px);
+}
+
+.die {
+  flex: 1 1 148px;
+  min-width: 130px;
+  max-width: 175px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.iconWrap {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  margin-bottom: clamp(18px, 2.5vw, 24px);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  shape-rendering: geometricPrecision;
+}
+
+.faceNum {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: rgba(245, 248, 255, 0.95);
+  pointer-events: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.faceNumWide {
+  font-size: 1.45rem;
+  letter-spacing: 0.01em;
+  transform: translate(-50%, -50%);
+}
+
+.caption {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.dieLabel {
+  display: block;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 0.35rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 720px) {
+  .iconWrap {
+    width: 108px;
+    height: 108px;
+  }
+
+  .die {
+    flex: 1 1 42%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .iconWrap {
+    width: 96px;
+    height: 96px;
+  }
+
+  .faceNum {
+    font-size: 1.65rem;
+  }
+
+  .faceNumWide {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,71 @@
+﻿.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 3vw, 28px);
+  width: 100%;
+  max-width: 920px;
+}
+
+.decorLine {
+  flex: 1;
+  height: 1px;
+  max-width: min(160px, 18vw);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(251, 191, 36, 0.15) 20%,
+    rgba(251, 191, 36, 0.65) 50%,
+    rgba(251, 191, 36, 0.15) 80%,
+    transparent
+  );
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.75rem, 3vw + 1rem, 2.65rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  color: #fff;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .title {
+    white-space: normal;
+  }
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(251, 191, 36, 0.92);
+}
+
+.panel {
+  width: 100%;
+  margin-top: clamp(4px, 1vw, 10px);
+  padding: clamp(24px, 3.5vw, 40px) clamp(22px, 3vw, 36px);
+  border-radius: 22px;
+  border: 1px solid var(--color-border-glass);
+  background: linear-gradient(165deg, rgba(34, 34, 48, 0.88) 0%, rgba(12, 12, 20, 0.94) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 20px 56px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}

@@ -1,0 +1,221 @@
+﻿.stepper {
+
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 0 12px;
+
+  width: 100%;
+
+  max-width: 640px;
+
+}
+
+
+
+.stepItem {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0;
+
+  flex: 0 0 auto;
+
+}
+
+
+
+.stepInner {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+
+  min-width: 110px;
+
+}
+
+
+
+.connector {
+
+  width: 48px;
+
+  height: 3px;
+
+  margin: 0 6px;
+
+  margin-top: 22px;
+
+  border-radius: 2px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  flex-shrink: 0;
+
+}
+
+
+
+.connectorActive {
+
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.85), rgba(251, 191, 36, 0.5));
+
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+
+}
+
+
+
+.bubble {
+
+  width: 48px;
+
+  height: 48px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-weight: 700;
+
+  font-size: 1.125rem;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  transition: var(--transition, 0.2s ease);
+
+}
+
+
+
+.bubbleActive {
+
+  color: #0c0a12;
+
+  background: linear-gradient(145deg, #fbbf24, #ea580c);
+
+  border-color: rgba(251, 191, 36, 0.85);
+
+  box-shadow:
+
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+
+    0 0 28px rgba(245, 158, 11, 0.55);
+
+}
+
+
+
+.bubbleDone {
+
+  color: #0c0a12;
+
+  background: linear-gradient(145deg, #fbbf24, #d97706);
+
+  border-color: rgba(251, 191, 36, 0.65);
+
+}
+
+
+
+.check {
+
+  width: 22px;
+
+  height: 22px;
+
+}
+
+
+
+.label {
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.02em;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+}
+
+
+
+.labelMuted {
+
+  color: rgba(255, 255, 255, 0.42);
+
+}
+
+
+
+.labelActive {
+
+  color: #fbbf24;
+
+}
+
+
+
+@media (max-width: 520px) {
+
+  .connector {
+
+    width: 24px;
+
+    margin-top: 20px;
+
+  }
+
+
+
+  .stepInner {
+
+    min-width: 88px;
+
+  }
+
+
+
+  .bubble {
+
+    width: 42px;
+
+    height: 42px;
+
+    font-size: 1.0625rem;
+
+  }
+
+}
+
+

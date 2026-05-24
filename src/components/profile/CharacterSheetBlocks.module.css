@@ -1,0 +1,401 @@
+﻿.panel {
+  padding: clamp(18px, 2vw, 26px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+.panelTitle {
+  margin: 0 0 14px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.35rem, 1.5vw + 0.85rem, 1.75rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.statCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.statLabel {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.statScore {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.statMod {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #d49e51;
+}
+
+.statScoreInput {
+  width: 100%;
+  max-width: 3.75rem;
+  margin: 0 auto;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 158, 81, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.statScoreInput:focus {
+  outline: none;
+  border-color: rgba(212, 158, 81, 0.65);
+}
+
+.skillList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.skillRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.skillRowHot {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.18) 0%, rgba(124, 58, 237, 0.12) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.22);
+  color: #fff;
+}
+
+.skillName {
+  flex: 1;
+  min-width: 0;
+}
+
+.skillBonus {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #d49e51;
+  margin-left: 12px;
+}
+
+.skillBonusInput {
+  width: 3.5rem;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 158, 81, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.skillBonusInput:focus {
+  outline: none;
+  border-color: rgba(212, 158, 81, 0.65);
+}
+
+.spellsPanel {
+  min-height: 0;
+}
+
+.spellsEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 24px 16px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.spellsEmptyIcon {
+  font-size: 1.5rem;
+  color: rgba(212, 158, 81, 0.65);
+}
+
+.spellsEmptyTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.spellsEmptyText {
+  margin: 0;
+  max-width: 36ch;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.spellSections {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.spellSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spellSectionTitle {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(212, 158, 81, 0.88);
+}
+
+.spellList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spellRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 1.0625rem;
+}
+
+.spellRowMuted {
+  padding: 10px 14px;
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.42);
+  font-style: italic;
+}
+
+.spellMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spellName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.spellSchool {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.spellTag {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgba(216, 180, 254, 0.95);
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.28);
+}
+
+.listGoldBullet {
+  flex-shrink: 0;
+  color: #d49e51;
+  font-size: 0.75rem;
+}
+
+.spellEditMain {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spellNameInput,
+.spellSchoolInput,
+.spellLevelSelect {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 158, 81, 0.3);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 1.0625rem;
+}
+
+.spellEditActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spellRemoveBtn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  background: rgba(220, 38, 38, 0.15);
+  color: #fecaca;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.spellAddBtn {
+  margin-top: 6px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(212, 158, 81, 0.4);
+  cursor: pointer;
+  width: 100%;
+}
+
+.spellAddBtn:hover {
+  border-color: rgba(251, 191, 36, 0.65);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.inventoryList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inventoryRow {
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.inventoryPanel {
+  min-height: 0;
+}
+
+.inventoryEmpty {
+  margin: 0;
+  padding: 16px;
+  text-align: center;
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.inventoryText {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.inventoryInput {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 158, 81, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1.0625rem;
+}
+
+.inventoryAddBtn {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(212, 158, 81, 0.4);
+  cursor: pointer;
+  width: 100%;
+}
+
+.inventoryAddBtn:hover {
+  border-color: rgba(251, 191, 36, 0.65);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.storyPanel {
+  padding: clamp(20px, 2.2vw, 28px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.storyBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.storyPara {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+}
