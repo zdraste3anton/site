@@ -20,10 +20,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(24px, 2.5vw, 36px);
   align-items: stretch;
-  justify-items: stretch;
 }
 
 .grid .card {
+  height: 100%;
   color: #fff;
 }
 

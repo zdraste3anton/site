@@ -9,7 +9,9 @@ export default function AuthLayout({ children }) {
     <PageShell variant="auth">
       <ParticleBackground variant="viewport" />
       <Header />
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <div className={styles.cardContainer}>{children}</div>
+      </main>
     </PageShell>
   );
 }
